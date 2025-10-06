@@ -52,7 +52,7 @@ public:
 
         cout << "\t> Average rating: " << total/(count-1) << "\n";
     }
-}
+};
 
 //randomRating() creates a random double rating between 1.0-5.0
 //returns the random double that was created
@@ -66,7 +66,7 @@ int main(){
     ifstream fin("reviews.txt");
     if (!fin) {
         cout << "Error: Could not open file\n";
-        return;
+        return 0;
     }
    
     string comments[50];
@@ -82,13 +82,13 @@ int main(){
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 3 && index < totalCom; j++) {
             double rating = randomRating();
-            string comment = comments[commentIndex++];
+            string comment = comments[index++];
             movies[i].addReview(rating, comment);
         }
     }
 
     cout << "\nMovie Reviews Summary";
-    for (int i = 0; i < NUM_MOVIES; i++)
+    for (int i = 0; i < 4; i++)
         movies[i].displayReviews();
 
 
