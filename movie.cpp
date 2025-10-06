@@ -3,11 +3,17 @@
 
 #include <iostream>
 #include <string>
-#include <iomanip>
 using namespace std;
 
-class Movie{
+struct Node{
+    double rating;
+    string comment;
+}
 
+class Movie{
+private:
+    string title;
+    Node *list;
 
 
 }
