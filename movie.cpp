@@ -61,13 +61,37 @@ double randomRating();
 
 int main(){
 
-    array<Movie,10> movies;
+    Movie movies[4] = {Movie("Frozen"),Movie("Zootopia"),Movie("Cadet Kelly"),Movie("10 Things I Hate About You")};
     
     ifstream fin("reviews.txt");
     if (!fin) {
         cout << "Error: Could not open file\n";
         return;
     }
+   
+    string comments[50];
+    int totalCom = 0;
+    while (getline(fin, comments[totalCom])) {
+        if (!comments[totalCom].empty())
+            totalCom++;
+    }
+    fin.close();
+
+
+    int index = 0;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 3 && index < totalCom; j++) {
+            double rating = randomRating();
+            string comment = comments[commentIndex++];
+            movies[i].addReview(rating, comment);
+        }
+    }
+
+    cout << "\nMovie Reviews Summary";
+    for (int i = 0; i < NUM_MOVIES; i++)
+        movies[i].displayReviews();
+
+
 
 }
 
