@@ -65,8 +65,8 @@ int main(){
     
     ifstream fin("reviews.txt");
     if (!fin) {
-        cerr << "Error: Could not open reviews.txt\n";
-        return 1;
+        cout << "Error: Could not open file\n";
+        return;
     }
 
 }
